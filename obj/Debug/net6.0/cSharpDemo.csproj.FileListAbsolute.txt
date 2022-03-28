@@ -92,4 +92,5 @@
 /Users/jiyangxu/Documents/repo/cSharpDemo/obj/Debug/net6.0/ref/cSharpDemo.dll
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/package-lock.json
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/package.json
-/Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/Microsoft.AspNet.SignalR.Core.dll
+/Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/System.Net.WebSockets.WebSocketProtocol.dll

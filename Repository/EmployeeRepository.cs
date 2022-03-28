@@ -1,15 +1,14 @@
 using dbChange.Models;
-using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
-
 namespace dbChange.Repository
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        private readonly IHubContext _context = GlobalHost.ConnectionManager.GetHubContext<SignalServer>();
+        private readonly IHubContext<SignalServer> _context;
         string connectionString = "";
         public EmployeeRepository(IConfiguration configuration,
-                IHubContext context)
+                                    IHubContext<SignalServer> context)
         {
             connectionString = configuration.GetConnectionString("DefaultConnection");
             _context = context;
@@ -17,18 +16,23 @@ namespace dbChange.Repository
         public List<Employee> GetAllEmployees()
         {
             var employees = new List<Employee>();
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
+
                 SqlDependency.Start(connectionString);
-                string commandText = "SELECT * FROM dbo.Employees";
+
+                string commandText = "select Id, Name, Age from dbo.Employees";
 
                 SqlCommand cmd = new SqlCommand(commandText, conn);
+
                 SqlDependency dependency = new SqlDependency(cmd);
 
                 dependency.OnChange += new OnChangeEventHandler(dbChangeNotification);
 
                 var reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
                     var employee = new Employee
@@ -37,10 +41,10 @@ namespace dbChange.Repository
                         Name = reader["Name"].ToString(),
                         Age = Convert.ToInt32(reader["Age"])
                     };
+
                     employees.Add(employee);
                 }
             }
-
 
             return employees;
         }

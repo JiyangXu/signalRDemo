@@ -27,16 +27,16 @@ $(() => {
           tr =
             tr +
             `<tr>
-          <td>${v.id}</td>
-          <td>${v.name}</td>
-          <td>${v.email}</td>
-          </tr>`;
+                      <td>${v.id}</td>
+                      <td>${v.name}</td>
+                      <td>${v.age}</td>
+                  </tr>`;
         });
 
         $("#tableBody").html(tr);
       },
-      error: (err) => {
-        console.log(err);
+      error: (error) => {
+        console.log(error);
       },
     });
   }

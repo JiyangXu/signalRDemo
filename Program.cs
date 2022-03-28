@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using cSharpDemo.Data;
 using dbChange.Repository;
+using dbChange;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,25 +42,9 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-
-
-ServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
-
-IConfiguration config = serviceProvider.GetRequiredService<IConfiguration>();
-
-var extensionType = typeof(HubEndpointRouteBuilderExtensions);
-var mapHubMethod = extensionType.GetMethod("MapHub", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static, new[] { typeof(IEndpointRouteBuilder), typeof(string) });
-var myHubTypeName = config.GetSection("Hubs").GetValue(typeof(string), "MyHub").ToString();
-// Assume it is something like this : 
-// "MyHubNameSpace.MyHub, MyAssembly, Version=1.2.3.0, Culture=neutral, PublicKeyToken=null"
-var myHubType = Type.GetType(myHubTypeName!); // read from config
-var path = "foo"; // read from config
-var genericMapHub = mapHubMethod!.MakeGenericMethod(myHubType!);
-
-
-app.UseEndpoints(endpoints =>
+app.UseEndpoints(config =>
 {
-    genericMapHub.Invoke(null, new object[] { endpoints, path });
+    config.MapHub<SignalServer>("/signalServer");
 });
 app.MapControllerRoute(
     name: "default",
