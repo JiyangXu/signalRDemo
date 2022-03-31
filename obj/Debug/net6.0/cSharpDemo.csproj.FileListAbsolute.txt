@@ -1,5 +1,4 @@
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/appsettings.Development.json
-/Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/appsettings.json
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/cSharpDemo.staticwebassets.runtime.json
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/app.db
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/cSharpDemo
@@ -94,3 +93,4 @@
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/package.json
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/Newtonsoft.Json.dll
 /Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/System.Net.WebSockets.WebSocketProtocol.dll
+/Users/jiyangxu/Documents/repo/cSharpDemo/bin/Debug/net6.0/appsettings.json

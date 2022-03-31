@@ -1,6 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using dbChange.Models;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+
 namespace dbChange.Repository
 {
     public class EmployeeRepository : IEmployeeRepository
@@ -51,6 +56,7 @@ namespace dbChange.Repository
 
         private void dbChangeNotification(object sender, SqlNotificationEventArgs e)
         {
+            var notification = e.ToString();
             _context.Clients.All.SendAsync("refreshEmployees");
         }
     }

@@ -1,7 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using cSharpDemo.Models;
+using dbChange.Models;
 using dbChange.Repository;
+using cSharpDemo.Models;
 
 namespace dbChange.Controllers
 {
@@ -15,6 +20,7 @@ namespace dbChange.Controllers
         }
         public IActionResult Index()
         {
+            _repository.GetAllEmployees();
             return View();
         }
 

@@ -1,7 +1,6 @@
 {
   "name": "csharpdemo",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +9,14 @@
   "license": "ISC",
   "dependencies": {
     "@aspnet/signalr": "^1.0.27"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiyangXu/signalRDemo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JiyangXu/signalRDemo/issues"
+  },
+  "homepage": "https://github.com/JiyangXu/signalRDemo#readme",
+  "description": ""
 }

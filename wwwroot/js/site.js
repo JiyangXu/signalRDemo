@@ -4,6 +4,7 @@
 // Write your JavaScript code.
 
 $(() => {
+  console.log("start");
   let connection = new signalR.HubConnectionBuilder()
     .withUrl("/signalServer")
     .build();
@@ -20,9 +21,10 @@ $(() => {
     var tr = "";
 
     $.ajax({
-      url: "/Home/GetEmployees",
+      url: "Home/GetEmployees",
       method: "GET",
       success: (result) => {
+        console.log(result);
         $.each(result, (k, v) => {
           tr =
             tr +

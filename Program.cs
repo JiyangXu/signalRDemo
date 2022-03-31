@@ -42,6 +42,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
 app.UseEndpoints(config =>
 {
     config.MapHub<SignalServer>("/signalServer");
